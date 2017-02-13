@@ -1,3 +1,20 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.4em;
+}
+
+.ui-grid, .ui-grid-viewport {
+    height: auto !important;
+}
 //.ui-grid-cell-contents {
 //    text-align: center !important;
 //}
+
+.grid-date {
+   // font-size: 11px;
+}
+.grid-numbers {
+    text-align: right;
+}
