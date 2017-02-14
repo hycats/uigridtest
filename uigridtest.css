@@ -9,7 +9,7 @@ body {
     height: 100%;
 }
 .ui-grid, .ui-grid-viewport {
-    width: auto;
+    width: 100%;
     height: calc(100% - 80px); !important;
 }
 
