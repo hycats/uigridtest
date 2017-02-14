@@ -12,6 +12,10 @@ body {
     width: auto;
     height: calc(100% - 80px); !important;
 }
+
+.ui-grid-header-cell {
+    text-align: center;
+}
 //.ui-grid-cell-contents {
 //    text-align: center !important;
 //}
