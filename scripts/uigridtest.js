@@ -20,7 +20,8 @@ mymodule
                     field: 'product', displayName: '品名', width: '10%'
                 },
                 {
-                    field: 'check', displayName: '済', type: 'boolean', width: 35
+                    field: 'check', displayName: '済', type: 'boolean', width: 25,
+                    cellTemplate: '<input type="checkbox">'
                 },
                 {
                     field: 'income', displayName: '収入', width: '12%',
