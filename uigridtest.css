@@ -6,6 +6,7 @@ body {
 }
 
 .ui-grid, .ui-grid-viewport {
+    width: 100%;
     height: auto !important;
 }
 //.ui-grid-cell-contents {
