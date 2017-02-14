@@ -1,4 +1,4 @@
-var mymodule = angular.module('myApp', ['ui.grid']);
+var mymodule = angular.module('myApp', ['ui.grid', 'ui.grid.emptyBaseLayer']);
 
 mymodule
     .controller('MyController', ['$scope', 'uiGridConstants', function ($scope, uiGridConstants) {

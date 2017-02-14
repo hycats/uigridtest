@@ -5,9 +5,12 @@ body {
     font-size: 1.4em;
 }
 
+.ng-scope {
+    height: 100%;
+}
 .ui-grid, .ui-grid-viewport {
     width: auto;
-    height: auto !important;
+    height: calc(100% - 80px); !important;
 }
 //.ui-grid-cell-contents {
 //    text-align: center !important;
