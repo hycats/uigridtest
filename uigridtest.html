@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <title>ui-grid test</title>
+        <link href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <link rel="styleSheet" href="../bower_components/angular-ui-grid/ui-grid.min.css" />
         <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css" />
         <script src="../bower_components/angular/angular.min.js"></script>
@@ -15,6 +16,24 @@
         <link rel="stylesheet" href="uigridtest.css" />
     </head>
     <body ng-controller="MyController">
-        <div ui-grid="myGrid" ui-grid-empty-base-layer></div>
+        <md-content class="myAll">
+            <md-tabs>
+                <md-tab md-active="true">
+                    <md-tab-label><md-icon md-font-icon="fa fa-home fa-lg"></md-icon></md-tab-label>
+                    <md-tab-body>
+                        <div ui-grid="myGrid" ui-grid-empty-base-layer></div>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label><md-icon md-font-icon="fa fa-table fa-lg"></md-icon></md-tab-label>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label><md-icon md-font-icon="fa fa-line-chart fa-lg"></md-icon></md-tab-label>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label><md-icon md-font-icon="fa fa-cog fa-fw fa-lg"></md-icon></md-tab-label>
+                </md-tab>
+            </md-tabs>
+        </md-content>
     </body>
 </html>
