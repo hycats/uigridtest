@@ -1,6 +1,22 @@
 var mymodule = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.emptyBaseLayer']);
 
 mymodule
+    .config(['$mdDateLocaleProvider', function($mdDateLocaleProvider){
+
+        //$mdDateLocaleProvider.shortMonths = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+        $mdDateLocaleProvider.shortDays = ['日','月','火','水','木','金','土'];
+
+        $mdDateLocaleProvider.formatDate = function(date) {
+            return moment(date).format('YYYY/MM/DD');
+        };
+
+        $mdDateLocaleProvider.parseDate = function(dateString) {
+            var m = moment(dateString, 'YYYY/MM/DD', true);
+            return m.isValid() ? m.toDate() : new Date(NaN);
+        };
+    }]);
+
+mymodule
     .controller('MyController', ['$scope', 'uiGridConstants', function ($scope, uiGridConstants) {
 
         this.myDate = new Date();
