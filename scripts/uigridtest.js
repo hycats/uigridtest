@@ -73,4 +73,28 @@ mymodule
                 }
             ]
         };
+
+        $scope.myGrid2 = {
+            enableColumnMenus: false,
+            enableSorting: false,
+            columnDefs: [
+                { field:'d1' },
+                { field:'d2' },
+                { field:'d3' },
+                { field:'d4' },
+                { field:'d5' },
+                { field:'d6' },
+                { field:'d7' },
+                { field:'d8' }
+            ],
+            data: [
+                { rowHeader: '食費', d1: 0, d2: 0 },
+                { rowHeader: '生活用品', d1: 0, d2: 0 }
+            ],
+            onRegisterApi: function(gridApi) {
+                $scope.gridApi = gridApi;
+                var cellTemplate = 'ui-grid/selectionRowHeader';   // you could use your own template here
+                $scope.gridApi.core.addRowHeaderColumn( { name: 'rowHeaderCol', displayName: '', width: 200, cellTemplate: "<div class=\"ui-grid-row-header-cell ui-grid-disable-selection\"><div class=\"ui-grid-cell-contents\">{{row.entity['rowHeader']}}</div></div>"} );
+            }
+        }
     }]);
