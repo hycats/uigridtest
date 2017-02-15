@@ -6,14 +6,17 @@ body {
 }
 
 .myAll {
-    height: calc(100% - 80px);
-}
-.ng-scope {
     height: 100%;
 }
+md-tabs.ng-isolate-scope {
+    height: calc(100% - 10px);
+}
+//.ng-scope {
+//    height: 100%;
+//}
 .ui-grid, .ui-grid-viewport {
     width: 100%;
-    //height: calc(100% - 80px); !important;
+    height: calc(100% - 80px); !important;
 }
 
 .ui-grid-header-cell {
