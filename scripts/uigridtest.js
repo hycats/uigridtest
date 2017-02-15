@@ -1,7 +1,10 @@
-var mymodule = angular.module('myApp', ['ngMaterial', 'ui.grid', 'ui.grid.emptyBaseLayer']);
+var mymodule = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.emptyBaseLayer']);
 
 mymodule
     .controller('MyController', ['$scope', 'uiGridConstants', function ($scope, uiGridConstants) {
+
+        this.myDate = new Date();
+
         $scope.myGrid = {
             enableColumnMenus: false,
             enableSorting: false,

@@ -15,12 +15,13 @@
         <script src="scripts/uigridtest.js"></script>
         <link rel="stylesheet" href="uigridtest.css" />
     </head>
-    <body ng-controller="MyController">
+    <body ng-controller="MyController as ctrl">
         <md-content class="myAll">
             <md-tabs>
                 <md-tab md-active="true">
                     <md-tab-label><md-icon md-font-icon="fa fa-home fa-lg"></md-icon></md-tab-label>
                     <md-tab-body>
+                        <md-datepicker ng-Model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus="true"></md-datepicker>
                         <div ui-grid="myGrid" ui-grid-empty-base-layer></div>
                     </md-tab-body>
                 </md-tab>
