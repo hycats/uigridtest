@@ -21,6 +21,13 @@ mymodule
 
         this.myDate = new Date();
 
+        $scope.accounts = [
+            { id: 1, name: '現金' },
+            { id: 2, name: '新生' },
+            { id: 3, name: '住信SBI' }
+        ];
+        $scope.selectedAccount = $scope.accounts[0];//{ id: 1, name: '現金' };
+
         $scope.myData = [
             {
                 sdate: new Date(2017, 01, 10),
