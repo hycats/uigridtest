@@ -16,19 +16,19 @@ md-tabs.ng-isolate-scope {
 }*/
 .ui-grid, .ui-grid-viewport {
     width: 100%;
-    height: calc(100% - 80px); !important;
+    /*height: calc(100% - 80px) !important;*/
 }
 
 .ui-grid-header-cell {
     text-align: center;
 }
-//.ui-grid-cell-contents {
-//    text-align: center !important;
-//}
+/*.ui-grid-cell-contents {
+    text-align: center !important;
+}*/
 
-.grid-date {
-   // font-size: 11px;
-}
+/*.grid-date {
+   font-size: 11px;
+}*/
 .grid-numbers {
     text-align: right;
 }
