@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ui-grid test route</title>
+    <link href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="styleSheet" href="../bower_components/angular-ui-grid/ui-grid.min.css" />
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css" />
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/angular-ui-grid/ui-grid.min.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="../bower_components/angular-material/angular-material.min.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="scripts/route.js"></script>
+    <script src="scripts/controller.js"></script>
+    <link rel="stylesheet" href="uigridtest.css" />
+</head>
+
+<body ng-controller="MyController">
+    <md-content class="myAll">
+        <md-tabs md-selected="0">
+            <md-tab ng-repeat="tab in tabs" md-on-select="switchTab($index)">
+                <md-tab-label>
+                    <md-icon md-font-icon="{{tab}}"></md-icon>
+                </md-tab-label>
+                <md-tab-body>
+                    <div ng-view></div>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</body>
+
+</html>
