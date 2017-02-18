@@ -28,14 +28,14 @@
                 </md-tab-label>
                 <md-tab-body>
                     <!-- 日付選択 -->
-                    <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus=></md-datepicker>
+                    <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-open-on-focus=></md-datepicker>
                     <!-- 口座選択 -->
                     <md-input-container>
                         <label>口座</label>
                         <md-select ng-model="selectedAccount" ng-model-options="{trackBy: '$value.id'}">
                             <md-option ng-value="acc" ng-repeat="acc in accounts">{{acc.name}}</md-option>
                         </md-select>
-                    </md-input-container></div>
+                    </md-input-container>
                     <div ui-grid="myGrid" ui-grid-empty-base-layer></div>
                 </md-tab-body>
             </md-tab>

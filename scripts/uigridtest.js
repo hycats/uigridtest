@@ -19,7 +19,7 @@ mymodule
 mymodule
     .controller('MyController', ['$scope', 'uiGridConstants', function ($scope, uiGridConstants) {
 
-        this.myDate = new Date();
+        $scope.myDate = new Date();
 
         $scope.accounts = [
             { id: 1, name: '現金' },
