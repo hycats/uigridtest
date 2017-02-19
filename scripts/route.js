@@ -23,3 +23,17 @@ mymodule
                 redirectTo: '/top'
             });
     });
+/*    .config(function configureAnimate( $animateProvider ) {
+                // By default, the $animate service will check for animation styling
+                // on every structural change. This requires a lot of animateFrame-based
+                // DOM-inspection. However, we can tell $animate to only check for
+                // animations on elements that have a specific class name RegExp pattern
+                // present. In this case, we are requiring the "animated" class.
+                // --
+                // NOTE: I have personally seen a performance boost using this approach
+                // on some complex page. The AngularJS documentation also says that
+                // this can also be really beneficial for low-powered mobile devices,
+                // but I don't do much mobile.
+                $animateProvider.classNameFilter( /\banimated\b/ );
+            }
+    );*/

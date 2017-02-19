@@ -58,6 +58,7 @@ mymodule
         $scope.myGrid = {
             enableColumnMenus: false,
             enableSorting: false,
+            exceesRows: 4,
             columnDefs: [
                 {
                     field: 'sdate', displayName: '日付', width: 100,
@@ -98,6 +99,7 @@ mymodule
         $scope.myGrid2 = {
             enableColumnMenus: false,
             enableSorting: false,
+            exceesRows: 4,
             columnDefs: [
                 { field: 'd1' },
                 { field: 'd2' },
