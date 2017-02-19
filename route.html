@@ -8,7 +8,7 @@
     <link rel="styleSheet" content="text/css" href="../bower_components/angular-ui-grid/ui-grid.min.css" />
     <link rel="stylesheet" content="text/css" href="../bower_components/angular-material/angular-material.min.css" />
     <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="../bower_components/angular-ui-grid/ui-grid.min.js"></script>
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
@@ -25,10 +25,10 @@
         <md-tabs md-selected="0">
             <md-tab ng-repeat="tab in tabs" md-on-select="switchTab($index)">
                 <md-tab-label>
-                    <md-icon md-font-icon="{{tab}}"></md-icon>
+                    <md-icon md-font-icon="{{tab.icon}}"></md-icon>
                 </md-tab-label>
                 <md-tab-body>
-                    <div ng-view></div>
+                    <div ui-view></div>
                 </md-tab-body>
             </md-tab>
         </md-tabs>

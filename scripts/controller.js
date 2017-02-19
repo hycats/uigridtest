@@ -21,7 +21,12 @@ mymodule
 
         $scope.myDate = new Date();
 
-        $scope.tabs = ["fa fa-home fa-lg", "fa fa-table fa-lg", "fa fa-line-chart fa-lg", "fa fa-cog fa-fw fa-lg"];
+        $scope.tabs = [
+            { icon:"fa fa-home fa-lg", url:"top"},
+            { icon:"fa fa-table fa-lg", url:"kakeibo" },
+            { icon:"fa fa-line-chart fa-lg", url:"graph" },
+            { icon:"fa fa-cog fa-fw fa-lg", url:"setting" }
+            ];
 
         $scope.switchTab = function (index) {
             switch (index) {
@@ -58,7 +63,7 @@ mymodule
         $scope.myGrid = {
             enableColumnMenus: false,
             enableSorting: false,
-            exceesRows: 4,
+            //exceesRows: 4,
             columnDefs: [
                 {
                     field: 'sdate', displayName: '日付', width: 100,

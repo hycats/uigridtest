@@ -1,6 +1,27 @@
-var mymodule = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.emptyBaseLayer']);
+var mymodule = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.emptyBaseLayer']);
 
 mymodule
+    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state('top', {
+                url: '/top',
+                templateUrl: 'views/top.html'
+            })
+            .state('kakeibo', {
+                url: '/kakeibo',
+                templateUrl: 'views/kakeibo.html'
+            })
+            .state('graph', {
+                url: '/graph',
+                templateUrl: 'views/graph.html'
+            })
+            .state('setting', {
+                url: '/setting',
+                templateUrl: 'views/setting.html'
+            });
+            $urlRouterProvider.otherwise('/top');
+    }]);
+/*
     .config(function ($routeProvider) {
         $routeProvider
             .when('/top', {
@@ -22,7 +43,7 @@ mymodule
             .otherwise({
                 redirectTo: '/top'
             });
-    });
+    });*/
 /*    .config(function configureAnimate( $animateProvider ) {
                 // By default, the $animate service will check for animation styling
                 // on every structural change. This requires a lot of animateFrame-based
