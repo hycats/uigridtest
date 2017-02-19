@@ -1,4 +1,4 @@
-var mymodule = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.emptyBaseLayer']);
+var mymodule = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.edit', 'ui.grid.cellNav', 'ui.grid.emptyBaseLayer']);
 
 mymodule
     .config(['$mdDateLocaleProvider', function ($mdDateLocaleProvider) {
@@ -17,23 +17,33 @@ mymodule
     }]);
 
 mymodule
-    .controller('MyController', ['$scope', 'uiGridConstants', function ($scope, uiGridConstants) {
+    .controller('MyController', ['$scope', '$timeout', 'uiGridConstants', function ($scope, $timeout, uiGridConstants) {
+
+        console.log('MyController initialized');
 
         $scope.myDate = new Date();
 
         $scope.accounts = [
-            { id: 1, name: '現金' },
-            { id: 2, name: '新生' },
-            { id: 3, name: '住信SBI' }
+            { id: 1, name: '現金', credit: false },
+            { id: 2, name: '新生', credit: false  },
+            { id: 3, name: '住信SBI', credit: false },
+            { id: 4, name: 'セゾン', credit: true }
         ];
         $scope.selectedAccount = $scope.accounts[0];//{ id: 1, name: '現金' };
+        $scope.switchAccount = function () {
+            console.log('account = ' + $scope.selectedAccount.name);
+            //var visible = $scope.selectedAccount.credit == true ? true : false;
+            //$scope.columns[4].visible = visible;
+            //$scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+        };
+
 
         $scope.myData = [
             {
                 sdate: new Date(2017, 01, 10),
-                fname: '食費',
-                lname: 'その他',
-                product: 'その他',
+                catefory: '食費',
+                breakdown: 'その他',
+                item: 'その他',
                 outgo: 5800,
                 balance: 120000000,
                 dummy: 1234
@@ -44,45 +54,65 @@ mymodule
             }
         ];
 
+        $scope.columns = [
+            {
+                field: 'sdate', displayName: '日付', width: 100,
+                cellFilter: 'date: "yyyy/MM/dd"', cellClass: 'grid-date',
+                type: 'date',
+            },
+            {
+                field: 'category', displayName: '費目', width: '10%',
+            },
+            {
+                field: 'breakdown', displayName: '内訳', width: '10%'
+            },
+            {
+                field: 'item', displayName: '品名', width: '10%'
+            },
+            {
+                field: 'check', displayName: '済', type: 'boolean', width: 25,
+                cellTemplate: '<input type="checkbox">', visible: $scope.selectedAccount.credit
+            },
+            {
+                field: 'income', displayName: '収入', width: '12%',
+                cellFilter: 'currency: "":0', cellClass: 'grid-numbers', type: 'number'
+            },
+            {
+                field: 'outgo', displayName: '支出', width: '12%',
+                cellFilter: 'currency: "":0', cellClass: 'grid-numbers', type: 'number'
+            },
+            {
+                field: 'balance', displayName: '残高', width: '12%',
+                cellFilter: 'currency: "":0', cellClass: 'grid-numbers', type: 'number'
+            },
+            {
+                field: 'comment', displayName: '備考'
+            }
+        ];
+
         $scope.myGrid = {
+            enableCellEditOnFocus: true,
             enableColumnMenus: false,
             enableSorting: false,
-            columnDefs: [
-                {
-                    field: 'sdate', displayName: '日付', width: 100,
-                    cellFilter: 'date: "yyyy/MM/dd"', cellClass: 'grid-date'
-                },
-                {
-                    field: 'fname', displayName: '費目', width: '10%'
-                },
-                {
-                    field: 'lname', displayName: '内訳', width: '10%'
-                },
-                {
-                    field: 'product', displayName: '品名', width: '10%'
-                },
-                {
-                    field: 'check', displayName: '済', type: 'boolean', width: 25,
-                    cellTemplate: '<input type="checkbox">'
-                },
-                {
-                    field: 'income', displayName: '収入', width: '12%',
-                    cellFilter: 'currency: "":0', cellClass: 'grid-numbers'
-                },
-                {
-                    field: 'outgo', displayName: '支出', width: '12%',
-                    cellFilter: 'currency: "":0', cellClass: 'grid-numbers'
-                },
-                {
-                    field: 'balance', displayName: '残高', width: '12%',
-                    cellFilter: 'currency: "":0', cellClass: 'grid-numbers'
-                },
-                {
-                    field: 'comment', displayName: '備考'
-                }
-            ],
-            data: $scope.myData
+            columnDefs: $scope.columns,
+            data: $scope.myData,
+            onRegisterApi: function (gridApi) {
+                $scope.gridApi = gridApi;
+            }
         };
+
+        $scope.$watch(
+            function() {
+                return $scope.selectedAccount.credit;
+            },
+            function(newValue, oldValue, scope) {
+                scope.columns[4].visible = newValue;
+                if ( scope.gridApi != null) {
+                    scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+                console.log(newValue);
+                }
+            }
+        );
 
         $scope.myGrid2 = {
             enableColumnMenus: false,
